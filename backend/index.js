@@ -15,6 +15,9 @@ app.get('/', (req, res) => {
   res.send('Bonjour depuis le serveur de la Chapelle des Conquérants!');
 });
 
+// Définir les routes
+app.use('/api/users', require('./routes/users'));
+
 async function startServer() {
   const mongoServer = await MongoMemoryServer.create();
   const uri = mongoServer.getUri();
